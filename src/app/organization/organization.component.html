@@ -1,3 +1,23 @@
-<p>
-  Okie Doke!
-</p>
+<div class="container color-dark">
+    <div class="col">
+      <p>Lets Organize!</p>
+    </div>
+    <div class="col">
+      <p>Here's What We Are Looking To Spruce Up &nbsp; <sup>({{ itemCount2 }})</sup></p>
+    </div>
+  </div>
+  
+  <div class="container color-light" [@orgs]="orgs.length">
+    <div class="col">
+      <p class="sm">Enter what needs that organization kick!</p>
+      <form>
+        <input type="text" class="txt" name="item" placeholder="What to rearrange..." [(ngModel)]="orgText">
+        <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+      </form>
+    </div>
+    <div class="col">
+      <p class="life-container" *ngFor="let org of orgs; let i = index " (click)="removeItem(i)">
+       {{ org }}
+      </p>
+    </div>
+  </div>
