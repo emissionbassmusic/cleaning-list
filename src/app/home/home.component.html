@@ -1,0 +1,23 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>What Shall We Clean?</p>
+  </div>
+  <div class="col">
+    <p>Cleaning List &nbsp; <sup>({{ itemCount }})</sup></p>
+  </div>
+</div>
+
+<div class="container color-light" [@cleans]="cleans.length">
+  <div class="col">
+    <p class="sm">Enter what needs cleaning</p>
+    <form>
+      <input type="text" class="txt" name="item" placeholder="What to clean..." [(ngModel)]="cleanText">
+      <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+    </form>
+  </div>
+  <div class="col">
+    <p class="life-container" *ngFor="let clean of cleans; let i = index " (click)="removeItem(i)">
+     {{ clean }}
+    </p>
+  </div>
+</div>
